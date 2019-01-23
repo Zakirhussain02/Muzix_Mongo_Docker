@@ -11,15 +11,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.event.ContextRefreshedEvent;
 
 
 @SpringBootApplication
 
 
 //path source of Applicaton context
+
 @PropertySource("classpath:object.properties")
 public class UserServiceApplication implements /*ApplicationListener<ContextRefreshedEvent>,*/ CommandLineRunner {
 
@@ -46,16 +45,28 @@ public class UserServiceApplication implements /*ApplicationListener<ContextRefr
 	public void run(String... args) throws Exception {
 		muzixRepository.save(new Muzix(trackId,trackName,comment));
 	}
+}
 
-	//ApplicationListener
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//ApplicationListener
 //	@Override
 //	public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent){
 //		muzixRepository.save(new Muzix(trackId,trackName,comment));
 //	}
-//
-//	@Override
-//	public void run(String... args) throws Exception {
-//		muzixRepository.save(new Muzix(trackId,trackName,comment));
-//	}
-}
-

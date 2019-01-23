@@ -6,7 +6,7 @@ public class MuzixAlreadyExistsException extends Exception {
 
     // variable assigned
 
-    public String message;
+    private String message;
 
     //constructor
 

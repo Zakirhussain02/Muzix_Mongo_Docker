@@ -2,7 +2,7 @@ package com.stackroute.exceptions;
 
 
 public class MuzixTrackNotFoundException extends Exception{
-    public String message;
+    private String message;
 
     //constructor
 

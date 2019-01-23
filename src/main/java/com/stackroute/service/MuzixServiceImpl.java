@@ -9,13 +9,13 @@ package com.stackroute.service;
         import org.springframework.stereotype.Service;
 
         import java.util.List;
+        import java.util.Optional;
 
 @Service
 public class MuzixServiceImpl implements MuzixService
 {
 
-    MuzixRepository muzixRepository;
-    int a=9;
+    private MuzixRepository muzixRepository;
 
     //constructor
 
@@ -52,8 +52,9 @@ public class MuzixServiceImpl implements MuzixService
     //updating users
 
     @Override
-    public Muzix updateMuzix(Muzix muzix) {
-
+    public Muzix updateMuzix(int trackId,String comment) {
+        Muzix muzix = muzixRepository.findById(trackId).get();
+        muzix.setComment(comment);
         return muzixRepository.save(muzix);
     }
 
