@@ -60,14 +60,13 @@ public class MuzixServiceImpl implements MuzixService
 
     // Deleting the track by ID
     @Override
-    public Muzix removeMuzix(int trackId) throws MuzixTrackNotFoundException{
+    public void removeMuzix(int trackId) throws MuzixTrackNotFoundException{
         if (!muzixRepository.existsById(trackId)) {
             throw new MuzixTrackNotFoundException("Sorry!The Track is Empty");
         }
-            Muzix deleteMuzix = muzixRepository.getOne(trackId);
-            muzixRepository.delete(deleteMuzix);
+            muzixRepository.deleteById(trackId);
 
-            return deleteMuzix;
+
         }
         @Override
     public List<Muzix> trackByName(String trackName) {
