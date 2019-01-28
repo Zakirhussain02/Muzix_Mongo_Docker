@@ -7,9 +7,7 @@ package com.stackroute.service;
         import com.stackroute.repository.MuzixRepository;
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.stereotype.Service;
-
         import java.util.List;
-        import java.util.Optional;
 
 @Service
 public class MuzixServiceImpl implements MuzixService
@@ -60,16 +58,22 @@ public class MuzixServiceImpl implements MuzixService
 
     // Deleting the track by ID
     @Override
-    public void removeMuzix(int trackId) throws MuzixTrackNotFoundException{
+    public List<Muzix> removeMuzix(int trackId) throws MuzixTrackNotFoundException{
         if (!muzixRepository.existsById(trackId)) {
             throw new MuzixTrackNotFoundException("Sorry!The Track is Empty");
         }
             muzixRepository.deleteById(trackId);
+            return muzixRepository.findAll();
 
 
         }
         @Override
     public List<Muzix> trackByName(String trackName) {
         return muzixRepository.findBytrackName(trackName);
+    }
+
+    @Override
+    public Muzix trackById(int trackId){
+        return muzixRepository.findById(trackId).get();
     }
 }

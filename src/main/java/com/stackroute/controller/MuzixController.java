@@ -101,5 +101,11 @@ public class MuzixController {
         return new ResponseEntity<List<Muzix>>(muzixService.trackByName(trackName),HttpStatus.OK);
     }
 
+    //getById method
+    @GetMapping("muzix/{trackId}")
+    public ResponseEntity<?> getTrackById(@PathVariable int trackId){
+        return new ResponseEntity<Muzix>(muzixService.trackById(trackId),HttpStatus.OK);
+    }
+
     }
 

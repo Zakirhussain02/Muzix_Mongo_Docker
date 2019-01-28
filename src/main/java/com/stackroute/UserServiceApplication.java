@@ -16,36 +16,38 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 
-
-//path source of Applicaton context
-
-@PropertySource("classpath:object.properties")
-public class UserServiceApplication implements /*ApplicationListener<ContextRefreshedEvent>,*/ CommandLineRunner {
-
-	@Autowired
-	MuzixRepository muzixRepository;
-
-	@Value("${trackId}")
-	private int trackId;
-
-	@Value("${trackName}")
-	private String trackName;
-
-	@Value("${comment}")
-	private String comment;
+//
+////path source of Applicaton context
+//
+//@PropertySource("classpath:object.properties")
+public class UserServiceApplication {
 
 
-
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		SpringApplication.run(UserServiceApplication.class, args);
 	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		muzixRepository.save(new Muzix(trackId,trackName,comment));
-	}
 }
+
+//	@Autowired
+//	MuzixRepository muzixRepository;
+//
+//	@Value("${trackId}")
+//	private int trackId;
+//
+//	@Value("${trackName}")
+//	private String trackName;
+//
+//	@Value("${comment}")
+//	private String comment;
+
+
+
+
+//	@Override
+//	public void run(String... args) throws Exception {
+//		muzixRepository.save(new Muzix(trackId,trackName,comment));
+//	}
+
 
 
 
